@@ -4,6 +4,7 @@ import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
     const [text, setText] = useState('');
+    const [category, setCategory] = useState('');
     const [amount, setAmount] = useState('');
     const { addTransaction } = useContext(GlobalContext);
 
@@ -13,6 +14,7 @@ export const AddTransaction = () => {
         const newTransaction = {
             id: Math.floor(Math.random() * 100000000),
             text,
+            category,
             amount: parseInt(amount)
         }
 
@@ -25,6 +27,10 @@ export const AddTransaction = () => {
                 <div className="form-control">
                     <label htmlFor="text">Text</label>
                     <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
+                </div>
+                <div className="form-control">
+                    <label htmlFor="category">Category</label>
+                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Enter category..."/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="amount">
