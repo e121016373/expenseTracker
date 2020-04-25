@@ -1,4 +1,5 @@
 # expenseTracker
+An expense tracker web application implemented in node.js and react.
 
 # Running the application
 
