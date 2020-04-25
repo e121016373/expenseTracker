@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Transaction } from './Transaction';
 import { GlobalContext } from '../context/GlobalState';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 export const TransactionList = () => {
-    const { transactions } = useContext(GlobalContext);
+    const { transactions, getTransactions } = useContext(GlobalContext);
+    
+    useEffect(() => {
+        getTransactions();
+    }, []);
     const columns = [
         {
             dataField: "id",
